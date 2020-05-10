@@ -1,3 +1,5 @@
+import datetime
+
 from flask import Flask, render_template
 
 app = Flask(__name__)
@@ -5,8 +7,9 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-	render_this = "Hi whoever is this!!"
-	return render_template("webpage.html", headline=render_this)
+	now = datetime.datetime.now()
+	new_year = now.month == 1 and now.day == 1
+	return render_template("webpage.html", new_year=new_year)
 
-if __name__=="__main__":
+if __name__ == "__main__":
     app.run(debug=True)
