@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>My Web Page</title>
-</head>
-<body>
-	Names:
-	{% for name in names %}
-		<li> {{ name }}</li>
-	{% endfor %}
-</body>
-</html>
+{% extends "layout.html" %}
+
+{% block heading %}
+	This is the first page
+{% endblock %}
+
+{% block body %}
+	<p> Hello and welcome to my first page of the website</p>
+	<a href="{{ url_for('more') }}">See More..</a>
+{% endblock %}
